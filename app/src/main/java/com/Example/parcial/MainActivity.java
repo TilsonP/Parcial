@@ -18,7 +18,7 @@ import java.util.concurrent.ExecutionException;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView rv;
-    public static ArrayList staticSings = new ArrayList<>();
+    public static ArrayList Lista = new ArrayList<>();
     Adaptador adaptador;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +29,16 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             WebService webService = new WebService();
-            staticSings = webService.execute("").get();
-            Log.d("size", String.valueOf(staticSings.size()));
-            adaptador = new Adaptador(staticSings);
+            Lista = webService.execute("").get();
+            Log.d("size", String.valueOf(Lista.size()));
+            adaptador = new Adaptador(Lista);
             rv.setAdapter(adaptador);
             rv.setLayoutManager(new LinearLayoutManager(this));
             if(webService.Comprobador()) {
-                Toast.makeText(this, "Conectado", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Conexion Exitosa", Toast.LENGTH_SHORT);
             }
             else{
-                Toast.makeText(this,  "Error", Toast.LENGTH_SHORT);
+                Toast.makeText(this,  "Error en la conexion", Toast.LENGTH_SHORT);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        adaptador = new Adaptador(staticSings);
+        adaptador = new Adaptador(Lista);
         rv.setAdapter(adaptador);
         rv.setLayoutManager(new LinearLayoutManager(this));
     }

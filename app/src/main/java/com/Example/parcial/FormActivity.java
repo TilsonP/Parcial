@@ -8,8 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.net.MalformedURLException;
 import java.util.concurrent.ExecutionException;
 
@@ -41,7 +39,7 @@ public class FormActivity extends AppCompatActivity {
     }
 
     public void AgregarCancion(View view){
-        MainActivity.staticSings.add(cancion);
+        MainActivity.Lista.add(cancion);
         finish();
     }
 }
