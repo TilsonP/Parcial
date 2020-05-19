@@ -19,8 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Escriba cancion a buscar Aqui" />
+            android:hint="Escribir Nombre de Cancion"
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/btnBuscar"
